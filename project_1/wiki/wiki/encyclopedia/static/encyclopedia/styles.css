@@ -12,6 +12,12 @@ h1 {
     padding-top: 20px;
 }
 
+h2 {
+    text-align: center !important;
+    font-size: 48px;  
+    font-weight: bold; 
+  }
+
 textarea {
     height: 90vh;
     width: 80%;

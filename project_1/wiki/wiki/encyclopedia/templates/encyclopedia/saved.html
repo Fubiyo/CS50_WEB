@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+     Saved 
+{% endblock %}
+
+{% block body %}
+ 
+<h2>Your edits for entry named: {{ entry_title }},   have been saved. Thank you!</h2>
+<a href="{% url 'encyclopedia:index' %}">Click here to return home</a>
+
+{% endblock %}

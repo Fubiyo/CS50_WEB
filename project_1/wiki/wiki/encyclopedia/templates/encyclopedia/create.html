@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'encyclopedia:create' %}" method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label for="title">Name of entry?:</label>
+        <input type="text" name="title">
+    </div>
+    <br>
+
+    <div>
+        <textarea name="content" rows="2" columns="40">
+            Enter text here:
+        </textarea>
+    </div>
+    
+    <button type="submit">Save Page</button>
+
+</form>
+
+{% endblock %}

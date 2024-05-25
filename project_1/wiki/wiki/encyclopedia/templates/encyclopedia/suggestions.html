@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Suggestions
+{% endblock %}
+
+{% block body %}
+
+<h2>Did you mean to visit? :</h2>
+    
+{% for title in matching_titles %}
+
+    <ul>
+        <form action="{% url 'encyclopedia:entry' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="entry" value="{{ title }}">
+            <button type="submit" style="border: none; background: none; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; color: blue;">{{ title }}</button>
+        </form>
+    </ul>
+
+{% endfor %}
+ 
+{% endblock %}

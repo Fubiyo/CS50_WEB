@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>
+    Success!
+</h2>
+<div>
+    Mission Success (handshake)
+</div>
+<div>
+    <hr>
+</div>
+<div>
+    {% if success %}
+        Listing Name = {{ success.name }}
+        Listing price = {{ success.price }}
+        Listing Category = {{ success.category }}
+    {% endif %} 
+</div>
+{% endblock %}
+

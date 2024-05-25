@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create Listing</h2>
+    <div>
+        <div>
+            <!-- field for listing name -->
+            <form action="{% url 'auctions:create_listing' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    {{ create_listing_form.name }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ create_listing_form.price }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ create_listing_form.image }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ create_listing_form.description }}
+                </div>
+                <div class="form-group mb-5">
+                    {{ create_listing_form.category}}
+                </div>
+
+                <button class="form-control" type="submit" style="background-color: lightgreen;">Submit</button>
+            </form>
+        </div>
+    </div>
+   
+    
+    <!-- <div>
+        {{ categories.0 }} / {{ categories.0.0}} / {{ categories.0.1}} <!--this is the correct syntax for parsing from list of tuples. Use object.0 for entire tuple. Object.0.0 for name. Object.0.1 for name -->
+    <!-- </div>
+    <div>
+        <ul>
+        {% for i in categories %}
+            <li>
+                {{ i.0 }} / {{ i.1 }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div> -->
+
+{% endblock %}

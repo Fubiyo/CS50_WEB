@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+     Created 
+{% endblock %}
+
+{% block body %}
+ 
+<h2>Your edits for entry named: {{ entry_title }},   have been created. Thank you!</h2>
+<a href="{% url 'encyclopedia:index' %}">Click here to return home</a>
+
+<form action="{% url 'encyclopedia:entry' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="entry" value="{{ title }}">
+    <button type="submit" style="border: none; background: none; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; color: blue;">{{ title }}</button>
+</form>
+
+{% endblock %}

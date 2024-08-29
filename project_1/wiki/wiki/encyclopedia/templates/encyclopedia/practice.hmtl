@@ -1,0 +1,75 @@
+PROCESS FOR MAKING JELLO SHOTS
+
+1000 jello shots
+
+jello product = Jello Family Size NET WT 6 OZ
+
+// 1 box makes 4 cups of product
+
+// proof?
+
+one box batch size size instructions {
+    2 cups boiling water
+    2 cups alcohol
+    1 box jello mix
+
+    return 4 cups finished product
+}
+
+// one box batch size = 4 cups finished product
+// 4 cups of finished product = 32 fl.oz
+
+one bottle vodka = 1.75 liters
+1.75 liters to cups = 7.4 ~
+
+
+-------------------------------------------------------------
+
+Therefore
+
+def JelloShots(500) {
+    500 jello shots = 1000 fl.oz
+
+    // total number of jello shot product required, divided by the amount of finished product --
+    // -- producable with one box batch of jello product
+    --
+    1000 fl.oz / box batch size (32 fl.oz) = 31.25 boxes required
+
+    // amount of alcohol in cups needed for 31.25 boxes is = (amount of boxes * 2 cups)
+    --
+    31.25 * 2 = 62.5 cups alcohol
+    
+    // convert amount of cups of alcohol needed back into 1.75 liter size bottles
+    --
+    62.5 cups to liters = 14.78 ~
+    14.78 liters / 1.75 liter size bottles = 8.4 ~ bottles
+
+    return(roundedINT(8.4 bottles vodka, 31.25 boxes jello shots))
+}
+
+jelloshots.py run
+
+JelloShots(500)
+
+9 bottles vodka, 32 boxes jello shots
+
+----------------------------------------------------------------
+
+def OneBatch(1.75_Liter_Vodka) {
+
+    half gallon alcohol = 1.75 liters
+
+    1.75 liters to cups = 7.4 cups
+
+    therefore for one bottle of vodka use 3 packages
+
+    3 packages size {
+        
+        3 package jello mix
+        6 cups water
+        6 cups alcohol
+    }
+
+    
+
+}

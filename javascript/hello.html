@@ -1,0 +1,51 @@
+<!-- use this in terminal to open file "wslview hello.html" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Colors</title>
+     <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+            
+        //     // Change color to red
+        //     document.querySelector('#red').onclick = function() {
+        //         document.querySelector('#hello').style.color = 'red';
+        //     } 
+            
+        //     // Change color to blue
+        //     document.querySelector('#blue').onclick = function() {
+        //         document.querySelector('#hello').style.color = 'blue';
+        //     } 
+
+        //     // Change color to green
+        //     document.querySelector('#green').onclick = function() {
+        //         document.querySelector('#hello').style.color = 'green';
+        //     } 
+        // });
+
+        // -------------------------------------------------------------------------------
+        
+        // add event listener to entire html document
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // use query selector all to find all the buttons (html with tag <button>), loop through all of them and give them each this code below:
+            document.querySelectorAll('button').forEach(function(button) {
+
+                // when this button is clicked
+                button.onclick = function() {
+
+                    // find the first html with id="hello" and change that html.color to the dataset.color value from this button
+                    document.querySelector('#hello').style.color = button.dataset.color;
+                }
+            });
+        });
+     </script>
+</head>
+<body>
+    <h1 id="hello">Hello</h1>
+    <button data-color="red">Red</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="green">Green</button>
+</body>
+</html>
+
+<!-- Warning: Don’t paste code into the DevTools Console that you don’t understand or haven’t reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type ‘allow pasting’ below and hit Enter to allow pasting. -->

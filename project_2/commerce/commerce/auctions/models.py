@@ -29,7 +29,7 @@ class User(AbstractUser):
     username =  models.CharField(unique=True, max_length=64)
     password = models.CharField(max_length=64)
     email = models.CharField(max_length=64)
-    watchlist = [] # list of Objects.Listing
+    watchlist = [] # list of Objects.Listing || also this field is probably not necessary
 
     # acquired
 

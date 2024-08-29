@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Currency Exchange</title>
+        <script>
+
+             var myHeaders = new Headers();
+                myHeaders.append("apikey", "rfg4jZjbBYAS2gCXj0UQ0eCcnaJiI6aS");
+
+                var requestOptions = {
+                method: 'GET',
+                redirect: 'follow',
+                headers: myHeaders
+                };
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+                fetch("https://api.apilayer.com/exchangerates_data/latest?base=USD", requestOptions)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) { // the javascript relating to the data has to be within this block instance here.
+
+                        // print the json data to the console to ensure it worked
+                        console.log(data);
+
+                        // when button is submitted
+                        document.querySelector('#submit').onclick = function() {
+                        
+                        // take the value from input id=currency
+                        const currency = document.querySelector('#currency').value;
+
+                        // use it as a key to parse the a key value pair from the api dictionary || add checker here
+                        const rate = data.rates[currency];
+
+                        // if rate does not return as valid data, return an error response. Else:
+                        if (!rate) {
+                            document.querySelector('#print_rate').innerHTML = 'Invalid currency please try again';
+                        } else {
+                            // take the returned value from the dictionary and display it within html elemnt with id=print_ratex
+                            console.log(rate);
+                            document.querySelector('#print_rate').innerHTML = `Exchange rate: ${rate}`;
+
+                        }
+
+                        
+                        // make sure form isint submitted anywhere
+                        return false;
+                    }
+                    })
+                    .catch(function(error) {
+                        console.error('Error', error);
+                    })  
+
+                    
+                    
+                });
+
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Exchange Currency:</h1>
+        </div>
+        <div>
+            <form>
+            <input id="currency" type="text" placeholder="Enter currency code (e.g., EUR)">
+            <button id="submit" type="button">Submit</button>
+            </form>
+        </div>
+        <div id="print_rate">
+            asdf
+        </div>
+
+    </body>
+        
+</html>

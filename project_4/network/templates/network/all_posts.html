@@ -1,0 +1,45 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<h2>All Posts</h2>
+<hr>
+
+<!-- title that says all posts, name a "hr" break somehwre under here, or acutally
+can prolly just dynamically change layout to include that. acutally its a 
+python route so probably ahve to do that here and not in javascript on the
+layout page -->
+
+<!-- use for loop and paginate here i think. import the entirety of "all posts" 
+objects here, paginate them, use a forloop with a "post" prototype to and
+populate. If user is signed in make sure theres a special div/section/button
+where the user can edit their own post, but not shown if posts is not theirs
+ -->
+<div>
+    <li>{{ posts }}</li>
+</div>
+
+{% for post in posts_to_display %}
+    <h2>post item = {{ post }}</h2>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if posts_to_display.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ posts_to_display.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts_to_display.number }} of {{ posts_to_display.paginator.num_pages }}
+        </span>
+
+        {% if posts_to_display.has_next %}
+            <a href="?page={{ posts_to_display.next_page_number }}">Next</a>
+            <a href="?page={{ posts_to_display.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}

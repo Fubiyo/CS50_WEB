@@ -18,12 +18,15 @@ class Flight(models.Model):
     def __str__(self):
         return f"{self.id}: {self.origin} to {self.destination}"
     
+    def is_valid_flight(self):
+        return self.origin != self.destination and self.duration > 0
+    
 class Passenger(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
     flights = models.ManyToManyField(Flight, blank=True, related_name="passengers") # django automatically creates a reverse relation when u use a many to many field --
-    # -- therefore technically although u cant see it. class Flight(models.Model) has a data field called like
-    # passengers = models.ManyToManyField('Passenger', related_name='flights')
+    # -- therefore technically although u cant see it. class Flight(models.Model) has a data field called like --
+    # -- passengers = models.ManyToManyField('Passenger', related_name='flights')
 
     def __str__(self):
             return f"{self.first} {self.last}"

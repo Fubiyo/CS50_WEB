@@ -2,12 +2,14 @@
 
 {% block body %}
     <div>
-        <h2>Create new post!</h2>
-        <div>
-            description
-        </div>
-        <div>
-            <button>submit button</button>
-        </div>
+        <h2 class="mb-3">Create new post!</h2>
+
+        <form action="{% url 'network:create_post' %}" method="POST">
+            <!-- include description of the item -->
+
+            <label for="new_post" class="col-form-label text-end">New post here</label>
+            <textarea name="description" placeholder="asdf" autofocus="true" class="form-control mb-3"></textarea>
+            <button type="submit" class="btn btn-primary btn-lg mb-3">Post!</button>  
+        </form>
     </div>
-{% endblock %}
+{% endblock %}  

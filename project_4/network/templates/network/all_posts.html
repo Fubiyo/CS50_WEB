@@ -1,5 +1,12 @@
 {% extends "network/layout.html" %}
 
+{% load static %}
+
+{% block script %}
+<script src="{% static 'network/all_posts.js' %}" defer></script>
+{% endblock %}
+
+
 {% block body %}
 
 <h2>All Posts</h2>
@@ -15,13 +22,29 @@ objects here, paginate them, use a forloop with a "post" prototype to and
 populate. If user is signed in make sure theres a special div/section/button
 where the user can edit their own post, but not shown if posts is not theirs
  -->
-<div>
-    <li>{{ posts }}</li>
-</div>
 
 {% for post in posts_to_display %}
-    <h2>post item = {{ post }}</h2>
+    <h2>{{ post.poster }}</h2>
 {% endfor %}
+
+<ul>
+{% for post in posts %}
+    <li>
+        {{ post }}
+    </li>
+{% endfor %}
+<li>
+    {{ posts.0.poster    }}
+</li>
+</ul>
+
+<div>
+    <form action="{% url 'network:all_posts' %}" method="post">
+        <button type="submit">TEST ALL_POSTS</button>
+    </form>
+</div>
+
+<button id="test-button">Test Javascript!</button>
 
 <div class="pagination">
     <span class="step-links">
@@ -40,6 +63,59 @@ where the user can edit their own post, but not shown if posts is not theirs
         {% endif %}
     </span>
 </div>
+
+<div>
+    Post Model:
+</div>
+
+<span class="d-flex justify-content-between">
+    <!-- content 1 -->
+    <div class="d-flex">
+        <h3 class="mx-3">Foo</h3>
+        <div style="width: 200px;"></div> <!-- Spacer --> 
+        <button>Bar</button>
+    </div>
+    <!-- content 2 -->
+    <h3>Baz</h3>
+</span>
+<div style="background-color: rgba(128, 128, 128, 0.5); padding: 20px;">
+    <div style="background-color: rgba(255, 128, 128, 0.5); word-wrap: break-word; width: 100%; max-width: 100%;">
+        It will be faster, but with reduced NVMe storage and RAM well it depends on your use case. 32gb is always better than 16gb. I have the same thing but m1pro 16gb/512 and I paid $1600 for it so this is comparably a better deal two years later. You m4 version probably 2x the cost so mid to high $2k to replicate RAM/storage. If I were you I would just keep it the m1 pro rig you have is quite fast and powerful. If it suits your needs then this machine isn't really offering anything stupidly better. I'm going to wait until they flush out AI more and then see if it makes sense to upgrade.
+    </div>
+</div>
+<span class="d-flex">
+    <h3 class="px-3">Likes!</h3>
+    <h3>123</h3>
+    <h3>Baz</h3>
+</span>
+
+<hr>
+
+<div>
+    Post  Prototype Sample #1:
+</div>
+
+<span class="d-flex justify-content-between">
+    <!-- content 1 -->
+    <div class="d-flex">
+        <h3 class="mx-3">By: {{posts.0.poster }}</h3>
+        <div style="width: 200px;"></div> <!-- Spacer --> 
+        <button>Follow/Unfollow</button>
+    </div>
+    <!-- content 2 -->
+    <h3>Baz</h3>
+</span>
+<div style="background-color: rgba(128, 128, 128, 0.5); padding: 20px;">
+    <div style="background-color: rgba(255, 128, 128, 0.5); word-wrap: break-word; width: 100%; max-width: 100%;">
+        {{ posts.0.description}}
+    </div>
+</div>
+<span class="d-flex">
+    <h3 class="px-3">Likes!</h3>
+    <h3 id="total-likes">{{ posts.0.likes }}</h3>
+    <img id="like-button" src="{% static 'network/images/heart.png' %}" class="mx-3" style="width: 33.5px; height: 33.5px;">
+</span>
+
 
 
 {% endblock %}

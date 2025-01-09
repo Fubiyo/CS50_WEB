@@ -11,24 +11,28 @@ class User(AbstractUser):
     password = models.CharField(max_length=64)
 
     def __str__(self):
-        return f"User = {self.username}" 
+        return f"{self.username}" 
 
 
 class Post(models.Model):
     poster = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.IntegerField(default=0)
+    description = models.CharField(max_length=10000, default="qqq")
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Poster/{self.poster}, description = {self.description}, likes = {self.likes}, timestamp = {self.timestamp} etc bro..."
+        
 
 class Following(models.Model):
 
     # person A is following person B ...
-    follower = models.ForeignKey(User, on_delete=models.CASCADE)
+    follower = models.ForeignKey(User, related_name="the_follower", on_delete=models.CASCADE)
 
     # person B is being followed by person A
-    following = models.ForeignKey(User, on_delete=models.CASCADE)
+    following = models.ForeignKey(User, related_name="the_followed", on_delete=models.CASCADE)
 
-    # set restriction so that followers and following ...
+    # set restriction so that followers and folliowing ...
     # ... cannot be the same person
 
     def valid_following(self):

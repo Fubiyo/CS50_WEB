@@ -117,7 +117,7 @@ def create_listing(request):
                 pass
             else:
                 return HttpResponseRedirect(reverse("auctions:fail"), {
-                "fail": "submitted category was not in category"
+                "fail": "submitted category was not in categories"
             })
         
             # access cleand data as easy to read variables || name, price, image, description, category

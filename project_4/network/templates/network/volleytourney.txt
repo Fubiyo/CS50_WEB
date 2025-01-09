@@ -1,0 +1,70 @@
+1v2 3v4 5,6
+1v5 3v6 2,4
+2v5 4v6 1,3
+2v3 1v4 5,6
+3v5 1v6 2,4
+4v5 2v6 1,3
+1v3 2v4 5,6
+5v6 1v2 3,4 *** 5v6 only teams yet to play from previous 7 rounds, therefore force.
+
+
+Team #1 plays: Off twice in 8 rounds. 
+- team 2 in round 1
+- team 5 in rouond 2
+--- OFF ROUND 3 ---
+- team 4 in round 4
+- team 6 in round 5
+-- OFF ROUND 6 ---
+- team 3 in round 7
+- team 2 in round 8 *** plays one extra game than other teams except team 2, plays team 2 again.
+
+Team #2 plays: Off two times in 8 rounds.
+- team 1 in round 1
+--- OFF ROUND 2 ---
+- team 5 in round 3
+- team 3 in round 4
+--- OFF ROUND 5 ---
+- team 6 in round 6
+- team 4 in round 7
+- team 1 in round 8 *** plays one extra game than other teams except team 2, plays team 1 again.
+
+Team #3 plays: Off three in 8 rounds
+- team 4 in round 1
+- team 6 in round 2
+--- OFF ROUND 3 ---
+- team 2 in round 4
+- team 5 in round 5
+--- OFF ROUND 6 ---
+- team 1 in round 7
+--- OFF ROUND 8 ---
+
+Team #4 plays: Off three times in 8 rounds
+- team 3 in round 1
+--- OFF ROUND 2 ---
+- team 6 in round 3
+- team 1 in round 4
+--- OFF ROUND 5 ---
+- team 5 in round 6
+- team 2 in round 7
+--- OFF ROUND 8 ---
+
+Team #5 plays: Off three times in 8 rounds
+--- OFF ROUND 1 ---
+- team 1 in round 2
+- team 2 in round 3
+--- OFF ROUND 4
+- team 3 in round 5
+- team 4 in round 6
+-- OFF ROUND 7 ---
+- team 6 in round 8
+
+Team #6 plays: Off three times in 8 rounds
+--- OFF ROUND 1 ---
+- team 3 in round 2
+- team 4 in round 3
+--- OFF ROUND 4 ---
+- team 1 in round 5
+- team 2 in round 6
+-- OFF ROUND 7 ---
+- team 5 in round 8
+

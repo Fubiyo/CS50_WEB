@@ -1,0 +1,16 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<h2>{{ result }}</h2>
+
+<div>
+    <h1>Post test page results, here it is:</h1>
+</div>
+<hr>
+<div>
+    validate object population === {% if post %} {{ post }} {% else %} (no post) {% endif %}
+</div>
+<div>
+    validate object exsistance === {% if retrieve %} {{ retrieve }} {% else %} (no retrieve) {% endif %}
+</div>
+{% endblock %}  

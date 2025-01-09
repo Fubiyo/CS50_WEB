@@ -1,11 +1,31 @@
-{% extends "network/layout.html" %}
+{% extends "network/index.html" %}
 
-{% block body %}
-
-<h2>Profile: {{ request.user }}</h2>
+{% block profile_page %}
     <!-- display number of followers and following -->
 
     <!-- display all posts  -->
 
     <!-- user request.user too render "follow button" html  -->
+
+    <!-- Display followers and following count -->
+    <span class="d-flex justify-content-between mx-auto" style="width: 80%;">
+        <h2>Followers:</h2>
+        <h2>Following:</h2>
+    </span>
+
+    <!-- vertical space gap -->
+    <div class="vertical-space">-vertical space. 50px top & bottom-</div>
+
+    <div>-left alight marker-</div>
+
+    <!-- section with padding on both sides -->
+    <div class="d-flex flex-column px-3">
+        <div>foo</div>
+        <div>bar</div>
+        <div>baz</div>
+        <div class="border-top my-3"></div>
+    </div>
+
+
+
 {% endblock %}
